@@ -1,0 +1,85 @@
+body {
+    font-family: sans-serif;
+    background-color: #F7F7F9;
+}
+
+h1 {
+    color: gray;
+    text-align: center;
+}
+
+h3 {
+  padding-left: 20px
+}
+
+p {
+  font-weight: normal;
+}
+
+table {
+  margin: auto;
+  width: 100%;
+}
+
+#top-details {
+  border-spacing: 0px;
+  width: 98%;
+  border: 0.5px solid gray;
+  border-radius: 10px;
+  background: white;
+}
+
+#about-me-button {
+  background-color: #ff9f1c;
+  border: 1px solid white;
+  border-radius: 25px;
+  width: 150px;
+  height: 50px;
+  margin-top: 10px;
+  font-size: 1.0em;
+}
+
+#toggle-switch-div{
+  margin: auto;
+  width: 250px;
+  background-color: white;
+}
+
+#tabs_plus_graph {
+  margin: auto;
+  width: 99%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.grid {
+  margin: auto;
+  border-spacing: 0;
+  width: 100%;
+  background: white;
+}
+
+.grid th {
+  width: 25%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.active {
+  text-align: center;
+  color: #EF6372;
+}
+
+.recovered {
+  text-align: center;
+  color: #249994;
+}
+
+.deceased {
+  text-align: center;
+}
+
+.confirmed {
+  text-align: center;
+  color: #EF6372;
+}

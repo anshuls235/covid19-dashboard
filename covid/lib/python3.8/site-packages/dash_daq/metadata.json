@@ -1,0 +1,3593 @@
+{
+  "src/components/BooleanSwitch.react.js": {
+    "description": "A switch component that toggles\nbetween on and off.",
+    "displayName": "BooleanSwitch",
+    "methods": [
+      {
+        "name": "UNSAFE_componentWillReceiveProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "setPropsOverride",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "{ value }",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "on": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether or not the switch is on",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Color to highlight active switch background"
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, switch will be vertical instead\nof horizontal",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, switch cannot be clicked"
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling,\npass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the component label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root object."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when\nswitch is toggled."
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'on'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `on` is allowed this prop can\nnormally be ignored.",
+        "defaultValue": {
+          "value": "['on']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/components/ColorPicker.react.js": {
+    "description": "A color picker.",
+    "displayName": "ColorPicker",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify the color picker in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "hex": {
+              "name": "string",
+              "description": "Hex string",
+              "required": false
+            },
+            "rbg": {
+              "name": "shape",
+              "value": {
+                "r": {
+                  "name": "number",
+                  "required": false
+                },
+                "g": {
+                  "name": "number",
+                  "required": false
+                },
+                "b": {
+                  "name": "number",
+                  "required": false
+                },
+                "a": {
+                  "name": "number",
+                  "required": false
+                }
+              },
+              "description": "RGB/RGBA object",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Color value of the picker"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, color cannot be picked."
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Size (width) of the component in pixels",
+        "defaultValue": {
+          "value": "225",
+          "computed": false
+        }
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling,\npass an object with label and style properties"
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the indicator label is positioned",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when\nthe color picker's value changes"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element"
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'value'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `value` is allowed this prop can\nnormally be ignored.",
+        "defaultValue": {
+          "value": "['value']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/components/DarkThemeProvider.react.js": {
+    "description": "DarkThemeProvider is a component that is placed at the root of\nthe component tree to make all components match the dark theme",
+    "displayName": "DarkThemeProvider",
+    "methods": [],
+    "props": {
+      "children": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "node"
+              }
+            },
+            {
+              "name": "node"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "theme": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "primary": {
+              "name": "string",
+              "description": "Highlight color",
+              "required": false
+            },
+            "secondary": {
+              "name": "string",
+              "description": "Supporting color",
+              "required": false
+            },
+            "detail": {
+              "name": "string",
+              "description": "Color used for UI details, like borders",
+              "required": false
+            },
+            "dark": {
+              "name": "bool",
+              "description": "True for Dark mode, false for Light",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Theme object to override with a custom theme"
+      }
+    }
+  },
+  "src/components/Gauge.react.js": {
+    "description": "A Gauge component that points to\na value between some range.",
+    "displayName": "Gauge",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The value of gauge. If logarithmic, the displayed\nvalue will be the logarithm of the inputted value."
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The size (diameter) of the gauge in pixels"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum value of the gauge. If logarithmic,\nrepresents the minimum exponent.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The maximum value of the gauge. If logarithmic,\nrepresents the maximum exponent.",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "base": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Base to be used in logarithmic scale.",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "logarithmic": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If set to true, a logarithmic scale will be\nused."
+      },
+      "showCurrentValue": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, the current value of the gauge\nwill be displayed"
+      },
+      "units": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for the current value"
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling, pass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the component label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "scale": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "start": {
+              "name": "number",
+              "description": "Value to start the scale from. Defaults\nto min.",
+              "required": false
+            },
+            "interval": {
+              "name": "number",
+              "description": "Interval by which the scale goes up. Attempts\nto dynamically divide min-max range by\ndefault.",
+              "required": false
+            },
+            "labelInterval": {
+              "name": "number",
+              "description": "Interval by which labels are added to\nscale marks. Defaults to 2 (every other\nmark has a label).",
+              "required": false
+            },
+            "custom": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number",
+                  "description": "Label for the mark"
+                },
+                {
+                  "name": "shape",
+                  "value": {
+                    "style": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "label": {
+                      "name": "string",
+                      "required": false
+                    }
+                  },
+                  "description": "Style object with label"
+                }
+              ],
+              "description": "Custom scale marks. The key determines the position\nand the value determines what will show. If you want\nto set the style of a specific mark point, the value\nshould be an object which contains style and label\nproperties",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Configuration for the component scale."
+      },
+      "color": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Color used for gauge's track/indicator"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "default": {
+                  "name": "string",
+                  "description": "Color used for current value text and other minor accents",
+                  "required": false
+                },
+                "gradient": {
+                  "name": "bool",
+                  "description": "Display ranges as a gradient between given colors.",
+                  "required": false
+                },
+                "ranges": {
+                  "name": "shape",
+                  "value": {
+                    "color": {
+                      "name": "arrayOf",
+                      "value": {
+                        "name": "number"
+                      },
+                      "required": false
+                    }
+                  },
+                  "description": "Define multiple color ranges on the gauge's track.\nThe key determines the color of the range and\nthe value is the start,end of the range itself.\nRanges must be contiguous along the entirety\nof the gauge's range of values.",
+                  "required": false
+                }
+              },
+              "description": "Color ranges configuration."
+            }
+          ]
+        },
+        "required": false,
+        "description": "Color configuration for the gauge's track."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      }
+    }
+  },
+  "src/components/GraduatedBar.react.js": {
+    "description": "A graduated bar component that displays\na value within some range as a\npercentage.",
+    "displayName": "GraduatedBar",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The value of the graduated bar"
+      },
+      "color": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Color used for graduated bar's track/indicator"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "default": {
+                  "name": "string",
+                  "description": "Fallback color to use when color.ranges\nhas gaps.",
+                  "required": false
+                },
+                "gradient": {
+                  "name": "bool",
+                  "description": "Display ranges as a gradient between given colors.\nRequires color.ranges to be contiguous along\nthe entirety of the graduated bar's range of values.",
+                  "required": false
+                },
+                "ranges": {
+                  "name": "shape",
+                  "value": {
+                    "color": {
+                      "name": "arrayOf",
+                      "value": {
+                        "name": "number"
+                      },
+                      "required": false
+                    }
+                  },
+                  "description": "Define multiple color ranges on the graduated bar's track.\nThe key determines the color of the range and\nthe value is the start,end of the range itself.",
+                  "required": false
+                }
+              },
+              "description": "Color ranges configuration."
+            }
+          ]
+        },
+        "required": false,
+        "description": "Color configuration for the graduated bar's\nprogress blocks.",
+        "defaultValue": {
+          "value": "light.primary",
+          "computed": true
+        }
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The size (length) of the graduated bar in pixels",
+        "defaultValue": {
+          "value": "250",
+          "computed": false
+        }
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, will display bar vertically instead of horizontally"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum value of the graduated bar",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The maximum value of the graduated bar",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "step": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Value by which progress blocks appear",
+        "defaultValue": {
+          "value": "0.5",
+          "computed": false
+        }
+      },
+      "showCurrentValue": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, the current percentage\n of the bar will be displayed"
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling, pass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the component label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      }
+    }
+  },
+  "src/components/Indicator.react.js": {
+    "description": "A boolean indicator LED.",
+    "displayName": "Indicator",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify the indicator in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, indicator is illuminated"
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Color of the indicator",
+        "defaultValue": {
+          "value": "colors.DARKER_PRIMARY",
+          "computed": true
+        }
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Size of the component. Either use this or width and height",
+        "defaultValue": {
+          "value": "15",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Width of the component. Set both width and height for a rectangular indicator"
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Height of the component. Set both width and height for a rectangular indicator"
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling,\npass an object with label and style properties"
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            },
+            {
+              "value": "'right'",
+              "computed": false
+            },
+            {
+              "value": "'left'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the indicator label is positioned",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element"
+      }
+    }
+  },
+  "src/components/Joystick.react.js": {
+    "description": "A joystick.",
+    "displayName": "Joystick",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify the color picker in Dash callbacks"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, color cannot be picked."
+      },
+      "angle": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Joystick angle in degrees, 0 = right, 90 = up, 180 = left, 270 = down"
+      },
+      "force": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Joystick force: distance between cursor and center in big-circle radii"
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Size (width) of the component in pixels",
+        "defaultValue": {
+          "value": "100",
+          "computed": false
+        }
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling,\npass an object with label and style properties"
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the indicator label is positioned",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when\nthe color picker's value changes"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element"
+      }
+    }
+  },
+  "src/components/Knob.react.js": {
+    "description": "A knob component that can be turned\nto a value between some range.",
+    "displayName": "Knob",
+    "methods": [
+      {
+        "name": "noop",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "UNSAFE_componentWillReceiveProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "onMouseDown",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onMouseUp",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onMouseMove",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "setValue",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The value of knob"
+      },
+      "color": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Color used for knob's track/indicator"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "default": {
+                  "name": "string",
+                  "description": "Color used for current value text and other minor accents",
+                  "required": false
+                },
+                "gradient": {
+                  "name": "bool",
+                  "description": "Display ranges as a gradient between given colors.",
+                  "required": false
+                },
+                "ranges": {
+                  "name": "shape",
+                  "value": {
+                    "color": {
+                      "name": "arrayOf",
+                      "value": {
+                        "name": "number"
+                      },
+                      "required": false
+                    }
+                  },
+                  "description": "Define multiple color ranges on the knob's track.\nThe key determines the color of the range and\nthe value is the start,end of the range itself.\nRanges must be contiguous along the entirety\nof the knob's range of values.",
+                  "required": false
+                }
+              },
+              "description": "Color ranges configuration."
+            }
+          ]
+        },
+        "required": false,
+        "description": "Color configuration for the knob's track."
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The size (diameter) of the knob in pixels"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum value of the knob",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The maximum value of the knob",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, knob cannot be moved."
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling, pass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the knob label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "scale": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "start": {
+              "name": "number",
+              "description": "Value to start the scale from. Defaults\nto min.",
+              "required": false
+            },
+            "interval": {
+              "name": "number",
+              "description": "Interval by which the scale goes up. Attempts\nto dynamically divide min-max range by\ndefault.",
+              "required": false
+            },
+            "labelInterval": {
+              "name": "number",
+              "description": "Interval by which labels are added to\nscale marks. Defaults to 2 (every other\nmark has a label).",
+              "required": false
+            },
+            "custom": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number",
+                  "description": "Label for the mark"
+                },
+                {
+                  "name": "shape",
+                  "value": {
+                    "style": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "label": {
+                      "name": "string",
+                      "required": false
+                    }
+                  },
+                  "description": "Style object with label"
+                }
+              ],
+              "description": "Custom scale marks. The key determines the position\nand the value determines what will show. If you want\nto set the style of a specific mark point, the value\nshould be an object which contains style and label\nproperties",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Configuration for the component scale."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when selected\nvalue changes."
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'value'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `value` is allowed this prop can\nnormally be ignored.",
+        "defaultValue": {
+          "value": "['value']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/components/LEDDisplay.react.js": {
+    "description": "A 7-bar LED display component.",
+    "displayName": "LEDDisplay",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify the display in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "number"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Value to be displayed. A number or a string\ncontaining only digits (0-9), periods, and colons,\nand possibly starting with a minus sign."
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Color of the display",
+        "defaultValue": {
+          "value": "colors.PRIMARY",
+          "computed": true
+        }
+      },
+      "backgroundColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Color of the display's background",
+        "defaultValue": {
+          "value": "'#fff'",
+          "computed": false
+        }
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Size of the display",
+        "defaultValue": {
+          "value": "42",
+          "computed": false
+        }
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling,\npass an object with label and style properties"
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the display label is positioned",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element"
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element"
+      }
+    }
+  },
+  "src/components/NumericInput.react.js": {
+    "description": "A numeric input component that can be\nset to a value between some range.",
+    "displayName": "NumericInput",
+    "methods": [
+      {
+        "name": "UNSAFE_componentWillReceiveProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "setValue",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The value of numeric input"
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The size (length) of the numeric input in pixels"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum value of the numeric input",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The maximum value of the numeric input",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, numeric input cannot changed."
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling,\npass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the numeric input label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when selected\nvalue changes."
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'value'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `value` is allowed this prop can\nnormally be ignored.",
+        "defaultValue": {
+          "value": "['value']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/components/PowerButton.react.js": {
+    "description": "A power button component can be\nturned on and off.",
+    "displayName": "PowerButton",
+    "methods": [
+      {
+        "name": "UNSAFE_componentWillReceiveProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "onClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "on": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether or not the power button is on",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The indicator color to display when power button is on"
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The size (diameter) of the power button in pixels",
+        "defaultValue": {
+          "value": "48",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, power button cannot be clicked"
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the button. To control styling, pass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the button label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when\nbutton is clicked."
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'on'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `on` is allowed this prop can\nnormally be ignored.",
+        "defaultValue": {
+          "value": "['on']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/components/PrecisionInput.react.js": {
+    "description": "A numeric input component that converts\nan input value to the desired precision.",
+    "displayName": "PrecisionInput",
+    "methods": [
+      {
+        "name": "UNSAFE_componentWillReceiveProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "formatPrecision",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "setValue",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "toggleInput",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "setTempValue",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "tempValue",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "blur",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The value of numeric input"
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The size (length) of the numeric input in pixels"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum value of the numeric input",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The maximum value of the numeric input",
+        "defaultValue": {
+          "value": "Number.MAX_SAFE_INTEGER",
+          "computed": true
+        }
+      },
+      "precision": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number of significant figures",
+        "defaultValue": {
+          "value": "2",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, numeric input cannot be changed."
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the scientific notation. To control styling,\npass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the numeric input label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when selected\nvalue changes."
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'value'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `value` is allowed this prop can\nnormally be ignored.",
+        "defaultValue": {
+          "value": "['value']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/components/Slider.react.js": {
+    "description": "A slider component with support for\na target value.",
+    "displayName": "Slider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks"
+      },
+      "marks": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "number": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "string",
+                  "description": "The label of the mark"
+                },
+                {
+                  "name": "shape",
+                  "value": {
+                    "style": {
+                      "name": "object",
+                      "required": false
+                    },
+                    "label": {
+                      "name": "string",
+                      "required": false
+                    }
+                  },
+                  "description": "The style and label of the mark"
+                }
+              ],
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Marks on the slider.\nThe key determines the position,\nand the value determines what will show.\nIf you want to set the style of a specific mark point,\nthe value should be an object which\ncontains style and label properties."
+      },
+      "color": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Color used for slider's track/indicator"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "default": {
+                  "name": "string",
+                  "description": "Fallback color to use when color.ranges\nhas gaps.",
+                  "required": false
+                },
+                "gradient": {
+                  "name": "bool",
+                  "description": "Display ranges as a gradient between given colors.\nRequires color.ranges to be contiguous along\nthe entirety of the gauge's range of values.",
+                  "required": false
+                },
+                "ranges": {
+                  "name": "shape",
+                  "value": {
+                    "color": {
+                      "name": "arrayOf",
+                      "value": {
+                        "name": "number"
+                      },
+                      "required": false
+                    }
+                  },
+                  "description": "Define multiple color ranges on the slider's track.\nThe key determines the color of the range and\nthe value is the start,end of the range itself.",
+                  "required": false
+                }
+              },
+              "description": "Color ranges configuration."
+            }
+          ]
+        },
+        "required": false,
+        "description": "Color configuration for the slider's track.",
+        "defaultValue": {
+          "value": "colors.DARKER_PRIMARY",
+          "computed": true
+        }
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The value of the input."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Additional CSS class for the root DOM node."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the component label is positioned.",
+        "defaultValue": {
+          "value": "'bottom'",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, the handles can't be moved."
+      },
+      "dots": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "When the step value is greater than 1,\nyou can set the dots to true if you want to\nrender the slider with dots.\n\nNote: dots are disabled automatically when\nusing color.ranges"
+      },
+      "included": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If the value is true, it means a continuous\nvalue is included. Otherwise, it is an independent value."
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimum allowed value of the slider.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum allowed value of the slider."
+      },
+      "step": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Value by which increments or decrements are made."
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, the slider will be vertical."
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Size of the slider in pixels.",
+        "defaultValue": {
+          "value": "265",
+          "computed": false
+        }
+      },
+      "targets": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "number": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "string",
+                  "description": "The label of the mark"
+                },
+                {
+                  "name": "shape",
+                  "value": {
+                    "showCurrentValue": {
+                      "name": "bool",
+                      "required": false
+                    },
+                    "label": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "color": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "style": {
+                      "name": "object",
+                      "required": false
+                    }
+                  },
+                  "description": "The style and label of the mark"
+                }
+              ],
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Targets on the slider.\nThe key determines the position,\nand the value determines what will show.\nIf you want to set the style of a specific target point,\nthe value should be an object which\ncontains style and label properties.",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "handleLabel": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "The label of the handle"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "showCurrentValue": {
+                  "name": "bool",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                },
+                "color": {
+                  "name": "string",
+                  "required": false
+                },
+                "style": {
+                  "name": "object",
+                  "required": false
+                }
+              },
+              "description": "The style and label of the handle"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Configuration of the slider handle's label.\nPassing falsy value will disable the label."
+      },
+      "updatemode": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'mouseup'",
+              "computed": false
+            },
+            {
+              "value": "'drag'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Determines when the component should update\nits value. If `mouseup`, then the slider\nwill only trigger its value when the user has\nfinished dragging the slider. If `drag`, then\nthe slider will update its value continuously\nas it is being dragged.\nOnly use `drag` if your updates are fast.",
+        "defaultValue": {
+          "value": "'mouseup'",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when the value changes."
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'value'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `value` is allowed this prop can\nnormally be ignored.",
+        "defaultValue": {
+          "value": "['value']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/components/StopButton.react.js": {
+    "description": "A Stop button component",
+    "displayName": "StopButton",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The size (width) of the stop button in pixels",
+        "defaultValue": {
+          "value": "92",
+          "computed": false
+        }
+      },
+      "buttonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text displayed in the button",
+        "defaultValue": {
+          "value": "'Stop'",
+          "computed": false
+        }
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number of times the button was clicked",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, button cannot be pressesd."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of the button."
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider"
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the button.\nTo control styling, pass an object with label and\nstyle properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the  label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when the\nbutton is clicked."
+      }
+    }
+  },
+  "src/components/Tank.react.js": {
+    "description": "A Tank component that fills to\na value between some range.",
+    "displayName": "Tank",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The value of tank. If logarithmic, the displayed value\nwill be the logarithm of the inputted value."
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The height of the tank in pixels",
+        "defaultValue": {
+          "value": "192",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The width of the tank in pixels",
+        "defaultValue": {
+          "value": "112",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The color of tank fill"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum value of the tank. If logarithmic,\nrepresents minimum exponent.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The maximum value of the tank. If logarithmic,\nrepresents the maximum exponent.",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "base": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Base to be used in logarithmic scale.",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "logarithmic": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If set to true, a logarithmic scale will be\nused."
+      },
+      "showCurrentValue": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, the current value of the tank\nwill be displayed"
+      },
+      "units": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for the current value"
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling,\npass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the component label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "scale": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "start": {
+              "name": "number",
+              "description": "Value to start the scale from. Defaults\nto min.",
+              "required": false
+            },
+            "interval": {
+              "name": "number",
+              "description": "Interval by which the scale goes up. Attempts\nto dynamically divide min-max range by\ndefault.",
+              "required": false
+            },
+            "labelInterval": {
+              "name": "number",
+              "description": "Interval by which labels are added to\nscale marks. Defaults to 2 (every other\nmark has a label).",
+              "required": false
+            },
+            "custom": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number",
+                  "description": "Label for the mark"
+                },
+                {
+                  "name": "shape",
+                  "value": {
+                    "style": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "label": {
+                      "name": "string",
+                      "required": false
+                    }
+                  },
+                  "description": "Style object with label"
+                }
+              ],
+              "description": "Custom scale marks. The key determines the position\nand the value determines what will show. If you want\nto set the style of a specific mark point, the value\nshould be an object which contains style and label\nproperties",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Configuration for the component scale."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      }
+    }
+  },
+  "src/components/Thermometer.react.js": {
+    "description": "A thermometer component that\nfills to a value between some\nrange",
+    "displayName": "Thermometer",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The value of thermometer. If logarthmic, the value\ndisplayed will be the logarithm of the inputted value."
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The height of the thermometer in pixels",
+        "defaultValue": {
+          "value": "192",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The width of the thermometer in pixels",
+        "defaultValue": {
+          "value": "20",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The color of the thermometer fill/current value text"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum value of the thermometer. If logarithmic,\nrepresents the minimum exponent.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The maximum value of the thermometer. If logarithmic,\nrepresents the maximum exponent.",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "base": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Base to be used in logarithmic scale.",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "logarithmic": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If set to true, a logarithmic scale will be\nused."
+      },
+      "showCurrentValue": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, the current value of the\nthermometer will be displayed"
+      },
+      "units": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for the current value"
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling, pass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the component label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "scale": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "start": {
+              "name": "number",
+              "description": "Value to start the scale from. Defaults\nto min.",
+              "required": false
+            },
+            "interval": {
+              "name": "number",
+              "description": "Interval by which the scale goes up. Attempts\nto dynamically divide min-max range by\ndefault.",
+              "required": false
+            },
+            "labelInterval": {
+              "name": "number",
+              "description": "Interval by which labels are added to\nscale marks. Defaults to 2 (every other\nmark has a label).",
+              "required": false
+            },
+            "custom": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number",
+                  "description": "Label for the mark"
+                },
+                {
+                  "name": "shape",
+                  "value": {
+                    "style": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "label": {
+                      "name": "string",
+                      "required": false
+                    }
+                  },
+                  "description": "Style object with label"
+                }
+              ],
+              "description": "Custom scale marks. The key determines the position\nand the value determines what will show. If you want\nto set the style of a specific mark point, the value\nshould be an object which contains style and label\nproperties",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Configuration for the component scale."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root component element."
+      }
+    }
+  },
+  "src/components/ToggleSwitch.react.js": {
+    "description": "A switch component that toggles between\ntwo values.",
+    "displayName": "ToggleSwitch",
+    "methods": [
+      {
+        "name": "UNSAFE_componentWillReceiveProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "click",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this compnent in Dash callbacks"
+      },
+      "value": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "The state of the switch",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The size of the switch"
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Color to highlight button/indicator"
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, switch will be vertical instead\nof horizontal",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true, switch cannot be clicked"
+      },
+      "theme": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Theme configuration to be set by a ThemeProvider",
+        "defaultValue": {
+          "value": "light",
+          "computed": true
+        }
+      },
+      "label": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string",
+              "description": "Label to be displayed"
+            },
+            {
+              "name": "shape",
+              "value": {
+                "style": {
+                  "name": "object",
+                  "required": false
+                },
+                "label": {
+                  "name": "string",
+                  "required": false
+                }
+              },
+              "description": "The style and label"
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "union",
+                "value": [
+                  {
+                    "name": "string",
+                    "description": "Label to be displayed"
+                  },
+                  {
+                    "name": "shape",
+                    "value": {
+                      "style": {
+                        "name": "object",
+                        "required": false
+                      },
+                      "label": {
+                        "name": "string",
+                        "required": false
+                      }
+                    },
+                    "description": "The style and label"
+                  }
+                ]
+              },
+              "description": "Multiple labels for both toggle states. The label at index 0 will be left\n(or bottom if the switch is vertical), and the label at index 0 will be\non the right (or top if vertical)"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Description to be displayed alongside the control. To control styling, pass an object with label and style properties."
+      },
+      "labelPosition": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'top'",
+              "computed": false
+            },
+            {
+              "value": "'bottom'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where the component label is positioned.",
+        "defaultValue": {
+          "value": "'top'",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class to apply to the root component element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style to apply to the root object."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that gets fired when\nswitch is toggled."
+      },
+      "persistence": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
+      },
+      "persisted_props": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'value'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `value` is allowed this prop can\nnormally be ignored.",
+        "defaultValue": {
+          "value": "['value']",
+          "computed": false
+        }
+      },
+      "persistence_type": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'local'",
+              "computed": false
+            },
+            {
+              "value": "'session'",
+              "computed": false
+            },
+            {
+              "value": "'memory'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "defaultValue": {
+          "value": "'local'",
+          "computed": false
+        }
+      }
+    }
+  }
+}
