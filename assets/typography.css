@@ -3,11 +3,6 @@ body {
     background-color: #F7F7F9;
 }
 
-h1 {
-    color: gray;
-    text-align: center;
-}
-
 h3 {
   padding-left: 20px
 }
@@ -19,6 +14,37 @@ p {
 table {
   margin: auto;
   width: 100%;
+}
+
+#header-div {
+  width: 100%;
+}
+
+#header-div h1 {
+  display: inline-block;
+  text-align: center;
+  width: 80%;
+}
+
+#header-div p {
+  margin: auto;
+}
+
+#header-div div {
+  display: inline-block;
+  width: 20%;
+}
+
+.img {
+  width: 50px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#github {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
 }
 
 #top-details {

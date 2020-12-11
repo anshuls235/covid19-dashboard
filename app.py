@@ -25,7 +25,7 @@ os.path.exists('data/cases-states.csv') == False:
 else:
     data_obj.update()
 
-df = pd.read_csv('India-cases.csv')
+#df = pd.read_csv('India-cases.csv')
 df_states = pd.read_csv('data/cases-states.csv')
 df_india = pd.read_csv('data/cases-india.csv')
 states = ['India']
@@ -70,7 +70,8 @@ def get_title(data, state='India', is_cum=True, col='active'):
             perc = df[f"{col}_perc"].iloc[0]
         date = pd.to_datetime(date)
         date = date.strftime("%a %b %d %Y")
-        return f"<b>{curr}\t{diff} ({perc}%)</b><br><span style='color:#4A4A4A'>{date}</span>"
+        return f"<b>{curr}\t{diff} ({perc}%)</b><br><span \
+            style='color:#4A4A4A'>{date}</span>"
     return None
 
 def generate_table(df, max_rows=10):
@@ -111,15 +112,29 @@ def generate_table(df, max_rows=10):
 
 
 app.layout = html.Div([
-    html.Table([
-        html.Thead([
-        html.Th(html.H1('COVID19 India Dashboard')),
-        html.Th(html.A(
-            html.Button("About me", id='about-me-button'),
-            href="https://www.kaggle.com/anshuls235")
-            )
+    html.Div([
+        html.H1('COVID19 India Dashboard'),
+        html.Div([
+            html.P('Connect with me on: '),
+            html.A(
+                html.Img(src='assets/images/linkedin.png',className='img'),
+                href='https://www.linkedin.com/in/anshul-sharma-sap/'
+                ),
+            html.A(
+                html.Img(src='/assets/images/twitter.png',className='img'),
+                href='https://twitter.com/anshuls235'
+                ),
+            html.A(
+                html.Img(src='/assets/images/kaggle.png',className='img'),
+                href='https://www.kaggle.com/anshuls235'
+                ),
+            html.A(
+                html.Img(src='/assets/images/github.png',className='img',
+                 id='github'),
+                href='https://github.com/anshuls235'
+                )
         ])
-    ], id='header-table'),
+    ], id='header-div'),
     html.Br(),
     html.Div(
             generate_top()
