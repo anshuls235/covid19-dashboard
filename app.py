@@ -30,6 +30,7 @@ df_states = pd.read_csv('data/cases-states.csv')
 df_india = pd.read_csv('data/cases-india.csv')
 states = ['India']
 states += df_states.state.unique().tolist()
+print(os.environ.get('DB_FLAVOR','not-found'))
 
 def generate_top():
     df = pd.read_csv('data/latest-data.csv')
@@ -257,4 +258,4 @@ def update_tab_graph(state,hdata,r_value,col):
     }
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(host='0.0.0.0')
